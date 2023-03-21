@@ -23,7 +23,30 @@ Là phương pháp tập trung vào các Luồng dữ liệu không đồng bộ
 Reactive Extension (ReactiveX hay RX) là một thư viện follow theo những quy tắc của Reactive Programming tức là nó soạn ra các chương trình bất đồng bộ và dựa trên sự kiện bằng cách sử dụng các chuỗi quan sát được.
 Các thư viện này cung cấp một list các interface và method giúp các developers viết code một cách đơn giản và sáng sủa hơn.
 
+## 5. RxJava
+Khái niệm: Reactive Extension (ReactiveX hay RX) sử dụng ngôn ngữ Java → RxJava
 
+Những thành phần quan trọng trong RxJava:
 
+Về cơ bản RxJava có hai thành phần chính: Observable và Observer
+
+Thêm vào đó, có những thứ khác như Schedulers, Operators và Subscription là các thành phần đóng vai trò như đa luồng, thao tác dữ liệu và kết nối.
+
+- Observable: Là luồng dữ liệu thực hiện một số công việc và phát ra dữ liệu.
+- Observer : Là thành phần đi kèm không thể thiếu của Observable. Nó nhận dữ liệu được phát ra bởi Observable.
+- Subcription: Là mối liên kết giữa Observable và Observer. Có thể có nhiều Observer đăng ký một Observable duy nhất.
+- Operator: Hỗ trợ cho việc sửa đổi dữ liệu được phát ra bởi Observable trước khi Observer nhận chúng.
+- Schedulers: Scheduler quyết định thread mà Observable sẽ phát ra dữ liệu và trên thread nào Observer sẽ nhận dữ liệu.
+- Disposable : Disposable được sử dụng để hủy sự kết nối của Observer với Observable khi không còn cần thiết việc này rất hữu dụng để tránh việc rò rỉ bộ nhớ.
+
+## 6. RxAndroid
+
+RxAndroid được đặc biệt sử dụng cho nền tảng Android được phát triển dựa trên RxJava. Đặc biệt Schedulers được bổ sung cho RxAndroid nhằm hỗ trợ cho đa luồng trong ứng dụng Android. Schedulers sẽ giúp bạn phân chia luồng chạy cho từng module code sao cho phù hợp.
+
+Một vài luồng chạy phổ biến được sử dụng qua Schedulers.
+
+- Schedulers.io(): Được sử dụng để thực hiện các hoạt động không tốn nhiều CPU như thực \\hiện cuộc gọi mạng, đọc đĩa/tệp, thao tác cơ sở dữ liệu, v.v.
+- AndroidSchedulers.mainThread(): Cung cấp quyền truy cập vào Android Main Thread/UI Thread.
+- Schedulers.newThread(): Thread mới sẽ được tạo ra mỗi khi một nhiệm vụ được tạo
 
 
