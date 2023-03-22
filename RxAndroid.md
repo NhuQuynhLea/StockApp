@@ -49,4 +49,37 @@ Một vài luồng chạy phổ biến được sử dụng qua Schedulers.
 - AndroidSchedulers.mainThread(): Cung cấp quyền truy cập vào Android Main Thread/UI Thread.
 - Schedulers.newThread(): Thread mới sẽ được tạo ra mỗi khi một nhiệm vụ được tạo
 
+## 7.Subject
+Subject là đối tượng trong RxJava có thể tương tác với các component khác như 1 Observable và 1 Observer. Nói tóm lại nó mang sức mạnh của cả hai:
+- Vì Subject là Observer nên nó có thể subscribe 1 hoặc nhiều Observable.
+- Vì Subject là Observable nên nó có thể truyền các item tới Observer bằng các re-emmiting hoặc emit new items.
 
+RxJava cung cấp cho chúng ta 4 loại Subject:
+- Publish Subject.
+- Replay Subject.
+- Behavior Subject.
+- Async Subject.
+
+VD:Giả sử professor là một Observable, professor dạy về một vài topic, student là một Observer, student quan sát topic mà professor đang dạy
+
+*Behavior Subject*
+Emits item gần nhất được emited và tất cả subsequent items của nguồn Observable khi một observer subcribes đến nó.
+
+Ở đây, nếu student đã vào lớp muộn, nhưng muốn nghe những gì gần nhất (Không phải từ lúc bắt đầu) professor đang dạy, để student có thể nắm được idea của ngữ cảnh. Trong trường hợp này chúng ta sẽ sử dụng Behavior.
+
+```java
+BehaviorSubject<Integer> source = BehaviorSubject.create();
+
+// It will get 1, 2, 3, 4 and onComplete
+source.subscribe(getFirstObserver());
+source.onNext(1);
+source.onNext(2);
+source.onNext(3);
+
+// It will get 3(last emitted)and 4(subsequent item) and onComplete
+source.subscribe(getSecondObserver());
+
+source.onNext(4);
+source.onComplete();
+
+```
