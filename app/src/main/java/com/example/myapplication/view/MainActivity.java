@@ -2,6 +2,7 @@ package com.example.myapplication.view;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -107,14 +110,20 @@ public class MainActivity extends AppCompatActivity implements StockClickListene
 
     Disposable disposable3 = viewModel.getObsSortBy().observeOn(AndroidSchedulers.mainThread())
         .subscribe((sortBy -> {
+          String message;
           if (sortItem != null) {
             if (sortBy == SortBy.CHG_DE) {
               sortItem.setIcon(ContextCompat.getDrawable(this, R.drawable.list_de));
+              message = "Sort by Rate Decrease";
             } else if (sortBy == SortBy.CHG_IN) {
               sortItem.setIcon(ContextCompat.getDrawable(this, R.drawable.list_in));
+              message = "Sort by Rate Increase";
             } else {
               sortItem.setIcon(ContextCompat.getDrawable(this, R.drawable.sort_az));
+              message = "Sort by Name";
             }
+            Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+            toast.show();
             Drawable drawable = sortItem.getIcon();
             if (drawable != null) {
               drawable.mutate();
@@ -141,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements StockClickListene
     mCompositeDisposable.add(disposable);
     mCompositeDisposable.add(disposable2);
     mCompositeDisposable.add(disposable3);
-    mCompositeDisposable.add(disposable4);
+   mCompositeDisposable.add(disposable4);
     mCompositeDisposable.add(disposable5);
   }
 

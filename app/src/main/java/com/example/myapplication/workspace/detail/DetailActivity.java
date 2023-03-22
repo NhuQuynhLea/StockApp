@@ -60,7 +60,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     protected void createTabs() {
-        tabs.add("Biểu đồ");
+       // tabs.add("Biểu đồ");
         tabs.add("Chi tiết");
 //        tabs.add("Lịch sử");
 //        tabs.add("Tin tức nội bộ");

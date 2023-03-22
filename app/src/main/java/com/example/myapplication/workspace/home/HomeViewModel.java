@@ -116,6 +116,7 @@ public class HomeViewModel extends ViewModel {
     stocks.onNext(new ArrayList<>());
     sortBy.onNext(SortBy.NAME);
     getStocks(true);
+
   }
 
   public void setSearchTerm(String term) {
@@ -137,6 +138,7 @@ public class HomeViewModel extends ViewModel {
      return Observable.interval(0,1, TimeUnit.MINUTES).flatMap(aLong -> service.getStockMarket()).repeat();
   }
   public void getStocks(Boolean... showLoadings) {
+      Log.e("TAG", "1234");
     if (showLoadings.length > 0 && showLoadings[0]) {
       loading.onNext(true);
     }
@@ -180,6 +182,7 @@ public class HomeViewModel extends ViewModel {
         .subscribeOn(Schedulers.io())
         .subscribe(this::handleResponse, this::handleError, this::handleSuccess);
     mCompositeDisposable.add(disposable);
+
   }
 
   private void handleResponse(List<StockItem> list) {
@@ -192,6 +195,7 @@ public class HomeViewModel extends ViewModel {
   }
 
   private void handleSuccess() {
+      Log.e("Loading", "true");
     loading.onNext(false);
   }
 

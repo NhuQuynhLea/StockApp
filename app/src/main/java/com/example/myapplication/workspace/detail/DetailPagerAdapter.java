@@ -26,7 +26,7 @@ public class DetailPagerAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         switch (position){
-            case 1:
+            case 0:
                 return DetailFragment.newInstance(stockItem);
             default:
                 return new BlankFragment();
