@@ -1,4 +1,4 @@
-package com.example.myapplication.workspace.detail;
+package com.example.myapplication.view;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.myapplication.workspace.detail.DetailPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.example.myapplication.R;
@@ -62,8 +63,5 @@ public class DetailActivity extends AppCompatActivity {
     protected void createTabs() {
        // tabs.add("Biểu đồ");
         tabs.add("Chi tiết");
-//        tabs.add("Lịch sử");
-//        tabs.add("Tin tức nội bộ");
-//        tabs.add("Thị trường");
     }
 }

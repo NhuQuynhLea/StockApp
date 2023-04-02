@@ -1,8 +1,6 @@
 package com.example.myapplication.view;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -11,13 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.SearchView.OnQueryTextListener;
 import androidx.core.content.ContextCompat;
@@ -32,7 +27,6 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.example.myapplication.Models.SortBy;
 import com.example.myapplication.Models.StockItem;
-import com.example.myapplication.workspace.detail.DetailActivity;
 import com.example.myapplication.workspace.home.HomeViewModel;
 import com.example.myapplication.workspace.home.StockAdapter;
 import com.example.myapplication.workspace.home.StockClickListener;

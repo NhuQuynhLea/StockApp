@@ -17,7 +17,7 @@
         <activity
             android:exported="false"
             android:theme="@style/AppTheme.AppCompat.Light.NoActionBar.FullScreen"
-            android:name=".workspace.detail.DetailActivity" />
+            android:name=".view.DetailActivity" />
         <activity
             android:exported="false"
             android:name=".view.MainActivity" />

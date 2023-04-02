@@ -5,7 +5,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".workspace.detail.DetailActivity">
+  tools:context=".view.DetailActivity">
 
   <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/appBar"
@@ -92,7 +92,9 @@
     app:layout_constraintTop_toBottomOf="@+id/appBar"
     app:tabMode="scrollable"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    android:layout_height="wrap_content"
+      app:tabIndicatorColor="@color/purple_700"
+      app:tabTextColor="@color/purple_700"/>
   <androidx.viewpager2.widget.ViewPager2
     android:id="@+id/detailViewPager"
     app:layout_constraintTop_toBottomOf="@+id/detailTabLayout"

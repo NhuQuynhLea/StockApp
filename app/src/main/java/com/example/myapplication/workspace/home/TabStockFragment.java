@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.Models.StockItem;
-import com.example.myapplication.workspace.detail.DetailActivity;
+import com.example.myapplication.view.DetailActivity;
 
 import java.util.List;
 
